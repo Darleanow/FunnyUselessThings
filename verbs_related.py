@@ -86,7 +86,7 @@ def conjuguer(pronoun,verb):
     compare_verb = unidecode.unidecode(verb)
     pronoun = pronoun.lower()
     terminaison = pronom(pronoun)
-    second_group = open("second_group.txt","r")
+    second_group = open("second_group.txt","r",encoding='utf-8')
     if verb[-2:] == "er" and verb != "aller":
         conjverb = verb[:-2]
         if verb[-3:] == "ger" and pronoun == "nous":
@@ -121,10 +121,11 @@ def conjuguer(pronoun,verb):
             return conjverb+terminaison.return_terminaison_firstGroup()
     elif verb in second_group.read():
         conjverb = verb[:-1]
-        if verb == "hair":
+        if verb == "haïr":
             if (pronoun == "nous" or pronoun =="vous" or pronoun=="ils" or pronoun=="elles"):
-                return conjverb+"ï"+terminaison.return_terminaison_secondGroup()
+                return conjverb+terminaison.return_terminaison_secondGroup()
             else:
+                conjverb=verb[:-2]
                 return conjverb+"i"+terminaison.return_terminaison_secondGroup()
         else:
             return conjverb+terminaison.return_terminaison_secondGroup()
@@ -150,7 +151,7 @@ def conjuguer(pronoun,verb):
             conjverb = verb[:-3]
             return conjverb + terminaison.vaincre_convaincre()
 
-print(conjuguer("nous","vaincre"))
+print(conjuguer("ils","haïr"))
             
 
 

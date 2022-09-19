@@ -1,5 +1,5 @@
 
-
+import generate
 
 scores = open("scores.txt","r")
 best_scores = []
@@ -18,6 +18,9 @@ while is_playing:
     
     if user_choice == 1:
         print("commencons")
+        length = int(input("Combien de mots voulez vous taper ? (Possible qu'il y en ai légèrement plus ou moins en fonction des phrases générées"))
+        words_list=generate.generate_sentences(length)
+
     elif user_choice == 2:
         check = open("scores.txt","r")
         checker_scores = check.read()
